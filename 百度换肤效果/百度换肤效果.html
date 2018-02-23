@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<title>百度换肤效果</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			background: url(img/peri1.jpg);
+			background-repeat: no-repeat;
+			text-align: center;
+		}
+		img{
+			width: 150px;
+			height: 100px;
+			margin-top: 100px;
+			border: 1px solid #ccc;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<script type="text/javascript">
+	window.onload=function(){
+		//获取元素
+		var pic1	=	document.getElementById("pic1")
+		var pic2	=	document.getElementById("pic2")
+		var pic3	=	document.getElementById("pic3")
+		//点击事件
+		pic1.onclick=function(){
+			document.body.style.backgroundImage='url(img/peri1.jpg)';
+		}
+		pic2.onclick=function(){
+			document.body.style.backgroundImage='url(img/peri2.jpg)';
+		}
+		pic3.onclick=function(){
+			document.body.style.backgroundImage='url(img/peri3.jpg)';
+		}
+	}
+</script>	
+<body>
+<div id="box">
+	<img src="img/peri1.jpg" id="pic1"/>
+	<img src="img/peri2.jpg" id="pic2"/>
+	<img src="img/peri3.jpg" id="pic3"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#scroll{
+				width: 400px;
+				height: 10px;
+				background: #ccc;
+				margin: 300px auto;
+				position: relative;
+			}
+			.bar{
+				width: 10px;
+				height: 20px;
+				position: absolute;
+				top: -5px;
+				left: 0;
+				background: #336699;
+				cursor: pointer;
+			}
+			.mask{
+				width: 0;
+				height: 100%;
+				background: #336699;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var scroll	=	document.getElementById("scroll");
+				var bar		=	scroll.children[0];
+				var mask	=	scroll.children[1];
+				bar.onmousedown=function(event){
+					var event	=	event	||	window.event;
+					var	leftVal	=	event.clientX	-	this.offsetLeft;
+					var	that	=	this;
+					document.onmousemove=function(event){
+						var event	=	event	||	window.event;
+						that.style.left	=	event.clientX - leftVal	+"px";
+						var val	=	parseInt(that.style.left)
+						if( val<0 )
+						{
+							that.style.left=0;
+						}else if( val > that.offsetParent.offsetWidth ){
+							that.style.left = that.offsetParent.offsetWidth+"px";
+						}
+						mask.style.width=that.style.left;
+					}
+					document.onmouseup=function(){
+						document.onmousemove=null;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="scroll">
+			<div class="bar"></div>
+			<div class="mask"></div>
+		</div>
+	</body>
+</html>

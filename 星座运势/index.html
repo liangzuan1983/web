@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 350px;
+				height: 250px;
+				border: 1px solid #ccc;
+				margin: 200px auto;
+			}
+			.dt{
+				padding-left: 10px;
+				line-height: 35px;
+				font-weight: 700;
+				color: #036;
+			}
+			.dd{
+				padding: 10px;
+			}
+			.dd-t{
+				overflow: hidden;
+			}
+			.icon{
+				width: 50px;
+				height: 50px;
+				background: url(img/pic.png) no-repeat;
+				float: left;
+				margin-right: 10px;
+			}
+			.yunshi{
+				width: 80px;
+				height: 13px;
+				background: url(img/yunshi.png) no-repeat;
+				display: inline-block;
+				position: relative;
+			}
+			.start{
+				width: 80px;
+				height: 13px;
+				background: url(img/yunshi.png) no-repeat bottom;
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>		
+		<script type="text/javascript">
+			window.onload=function(){
+				function $(id) {return document.getElementById(id)};
+				var arr	=	[6,8,9,4,1,2,3,4,5];				//存放运势
+				function fn(yunshi){
+					$('sele').onchange=function(){
+						$('ico').style.backgroundPosition="0 "+(this.value*-50)+"px";
+						$('star').style.width=yunshi*8+"px";
+						switch(this.value){
+							case "2":
+							fn(arr[this.value]);
+							break;
+						}
+					}
+				}
+				fn()
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="dt">星座性格</div>
+			<div class="dd">
+				<div class="dd-t">
+					<div class="icon" id="ico"></div>
+					<div class="right">
+						<select id="sele">
+							<option value="0">白羊座</option>
+							<option value="1">金牛座</option>
+							<option value="2">双子座</option>
+							<option value="3">巨蟹座</option>
+							<option value="4">狮子座</option>
+							<option value="5">处女座</option>
+							<option value="6">天秤座</option>
+							<option value="7">天蝎座</option>
+							<option value="8">射手座</option>
+							<option value="9">摩羯座</option>
+							<option value="10">水瓶座</option>
+							<option value="11">双鱼座</option>
+						</select>
+						<div>
+							今日运势:
+							<span class="yunshi">
+								<span class="start" id="star"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="dd-b" id="content">
+					白羊座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热情、阳光、乐观、坚强，对朋友也慷概大方，性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

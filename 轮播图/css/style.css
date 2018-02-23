@@ -1,0 +1,66 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #ccc;
+}
+li{
+	list-style: none;
+}
+img{
+	vertical-align: top;
+}
+.slider{
+	width: 900px;
+	height: 500px;
+	margin: 100px auto;
+	position: relative;
+	overflow: hidden;
+}
+.sliderTop{
+	width: 900px;
+	height: 450px;
+}
+.slider-main{
+	width: 1800px;
+	height: 450px;
+}
+.slider-main-img{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.slider-ctrl{
+	text-align: center;
+	padding-top: 5px
+}
+.slider-ctrl-con{
+	width: 24px;
+	height: 20px;
+	display: inline-block;
+	background: url(../img/icon.png) no-repeat -24px -782px;
+	margin: 0 5px;
+	cursor: pointer;
+	text-indent: -20em;
+	overflow: hidden;
+}
+.current{
+	background-position: -24px -762px;
+}
+.slider-ctrl-prev,
+.slider-ctrl-next{
+	position: absolute;
+	top: 50%;
+	margin-top: -35px;
+	background: url(../img/icon.png) no-repeat 6px top;
+	width: 30px;
+	height: 35px;
+	opacity: .8;
+	cursor: pointer;
+}
+.slider-ctrl-prev{
+	left: 0;
+}
+.slider-ctrl-next{
+	right: 0;
+	background-position: -6px -44px;
+}

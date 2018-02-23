@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				function (event){
+					var event	=	event	||	window.event;
+					//冒泡阻止
+					if(event && event.stopPropagation){
+						event.stopPropagation();
+					}else{
+						event.cancelBubble = true;
+					}
+					//event ID属性
+					var targetId	=	event.target ? event.target.id :event.srcElement.id;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		function (event){<br />
+				var event	=	event	||	window.event;<br />
+				//冒泡阻止<br />
+				if(event && event.stopPropagation){ <br />
+					event.stopPropagation();<br />
+				}else{<br />
+					event.cancelBubble = true;<br />
+				}<br />
+				//event ID属性<br />
+				var targetId	=	event.target ? event.target.id :event.srcElement.id;<br />
+			}
+	</body>
+</html>

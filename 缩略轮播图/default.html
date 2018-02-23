@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>js图片轮播幻灯片UC浏览器官网焦点图片切换</title>
+		<link rel="stylesheet" type="text/css" href="css/style_1.css" />
+	</head>
+	<body>
+		<div style="width: 100px; height: 100px; background: red;"></div>
+		<div id="imageShow">
+			<div id="imgshow_mask"></div>
+			<ul class="imagebg" id="imagebg">
+				<li data-sPic="images/index_ya_s.jpg">
+					<a href="http://www.17sucai.com/" class="bannerbg_main">
+						<img src="images/banner_home_1.jpg">
+					</a>
+				</li>
+				<li data-sPic="images/index_ya_s.jpg">
+					<a href="http://www.17sucai.com/" class="bannerbg_main">
+						<img src="images/banner_home_3.jpg">
+					</a>
+				</li>
+			</ul>
+			<div class="scrollbg">
+				<div class="scroll">
+					<a id="left_img_btn" class="s_pre" href="javascript:void(0)"></a>
+					<div class="current" id="current"></div>
+					<div class="outScroll_pic">
+						<ul class="scroll_pic cls" id="small_pic"></ul>
+					</div>
+					<a id="right_img_btn" class="s_next" href="javascript:void(0)"></a>
+				</div>
+			</div>
+		</div>
+		<div style="width: 100px; height: 100px; background: red;"></div>
+		<script type="text/javascript" src="js/imgslider.js"></script>
+		<script type="text/javascript">
+			img.init();
+			img.play(0);
+			//阻止事件冒泡
+			function estop(e) {
+				var e = arguments.callee.caller.arguments[0] || event;
+				if(e && e.stopPropagation) {
+					//因此它支持W3C的stopPropagation()方法
+					e.stopPropagation();
+				} else {
+					//否则，我们需要使用IE的方式来取消事件冒泡
+					window.event.cancelBubble = true;
+					return false;
+				}
+			}
+		</script>
+	</body>
+
+</html>

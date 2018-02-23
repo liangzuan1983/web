@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript">
+	var inherit	=	(function(){
+			var F = function(){}
+			return	function (Target,Origin) {
+				F.prototype	=	Origin.prototype;
+				Target.prototype	=	F.prototype;
+			}
+	}())
+	A.prototype.Lastname	=	"继承";
+	function A(){}
+	function B(){}
+	inherit(B,A);
+	var a=new A()
+	var b=new B();
+	console.log(b.Lastname);
+
+
+</script>

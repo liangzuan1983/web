@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			.box{
+				width: 300px;
+				height: 100px;
+				margin: 100px auto;
+				position: relative;
+			}
+			#text{
+				width: 300px;
+				height: 30px;
+				outline-style: none;
+			}
+			.box label{
+				position: absolute;
+				top: 5px;
+				left: 10px;
+				color: #CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="" id="text" value="" />
+			<label for="text" id="message">输入事件</label>			
+		</div>
+		<script type="text/javascript">
+			function $(id){return document.getElementById(id)};
+			$('text').focus();
+			$('text').oninput=function(){
+				if(this.value==""){
+					$('message').style.display='block';
+				}else{
+					$('message').style.display='none';
+				}
+			}
+		</script>
+	</body>
+</html>

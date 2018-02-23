@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#box{
+				width: 360px;
+				height: 70px;
+				border: 1px solid red;
+				margin: 100px auto;
+				padding-top: 360px;
+				overflow: hidden;
+				background-image: url(img/01big.jpg);
+			}
+			li{
+				float: left;
+				cursor: pointer;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li id="li01"><img src="img/01.jpg"/></li>
+				<li id="li02"><img src="img/02.jpg"/></li>
+				<li id="li03"><img src="img/03.jpg"/></li>
+				<li id="li04"><img src="img/04.jpg"/></li>
+				<li id="li05"><img src="img/05.jpg"/></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			function fu( id,bg ){
+				var obj	=	document.getElementById(id);
+				obj.onmousemove=function(){
+					document.getElementById("box").style.backgroundImage=bg;
+				}
+			}
+			fu('li01','url(img/01big.jpg)')
+			fu('li02','url(img/02big.jpg)')
+			fu('li03','url(img/03big.jpg)')
+			fu('li04','url(img/04big.jpg)')
+			fu('li05','url(img/05big.jpg)')
+		</script>
+	</body>
+</html>

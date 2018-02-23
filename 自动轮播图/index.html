@@ -1,0 +1,158 @@
+<!DOCTYPE >
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				border: 0;
+			}
+			
+			.all {
+				width: 500px;
+				height: 200px;
+				padding: 7px;
+				border: 1px solid #ccc;
+				margin: 100px auto;
+				position: relative;
+			}
+			
+			.screen {
+				width: 500px;
+				height: 200px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.screen li {
+				width: 500px;
+				height: 200px;
+				overflow: hidden;
+				float: left;
+			}
+			
+			.screen ul {
+				position: absolute;
+				left: 0;
+				top: 0px;
+				width: 3000px;
+			}
+			
+			.all ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				line-height: 20px;
+				text-align: center;
+			}
+			
+			.all ol li {
+				float: left;
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border: 1px solid #ccc;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+			
+			.all ol li.current {
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript">
+			//匀速动画封装
+			function animate(obj, target) {
+				clearInterval(obj.timer);
+				var speed = obj.offsetLeft < target ? 15 : -15;
+				obj.timer = setInterval(function() {
+					var result = target - obj.offsetLeft;
+					obj.style.left = obj.offsetLeft + speed + "px";
+					if(Math.abs(result) <= 15) {
+						clearInterval(obj.timer);
+						obj.style.left = target + "px"
+					}
+				}, 20)
+			}
+			window.onload = function() {
+				//获取和创建元素
+				var box = document.getElementById("all");
+				var ul = document.getElementById("ul");
+				var ulLis = ul.children;
+				var ol = document.createElement('ol');
+				//克隆第一张图片
+				ul.appendChild(ul.children[0].cloneNode(true));
+				//动态添加节点
+				box.appendChild(ol);
+				//循环li
+				for(var i = 0; i < ulLis.length - 1; i++) {
+					var li = document.createElement('li')
+					ol.appendChild(li);
+					li.innerHTML = i + 1;
+				}
+				ol.children[0].className = "current";
+				//开始动画
+				var olLis = ol.children;
+				for(var i = 0; i < olLis.length; i++) {
+					olLis[i].index = i;
+					olLis[i].onmouseover = function() {
+						for(var j = 0; j < olLis.length; j++) {
+							olLis[j].className = "";
+						}
+						this.className = "current";
+						animate(ul, -this.index * 500)
+						square = key = this.index
+					}
+				}
+				//自动播放动画
+				var timer = null;
+				var key = 0;
+				var square = 0;
+				timer = setInterval(autoplay, 1000);
+
+				function autoplay() {
+					key++
+					if(key > ulLis.length - 1) {
+						ul.style.left = 0;
+						key = 1;
+					}
+					animate(ul, -key * 500);
+					square++
+					if(square > olLis.length - 1) {
+						square = 0;
+					}
+					for(var i = 0; i < olLis.length; i++) {
+						olLis[i].className = "";
+					}
+					olLis[square].className = "current";
+				}
+				//鼠标移动
+				box.onmouseover = function() {
+					clearInterval(timer);
+				}
+				box.onmouseout = function() {
+					timer = setInterval(autoplay, 1000); // 开始轮播图定时器
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="all" id='all'>
+			<div class="screen">
+				<ul id="ul">
+					<li><img src="img/01.jpg" width="500" height="200" /></li>
+					<li><img src="img/02.jpg" width="500" height="200" /></li>
+					<li><img src="img/03.jpg" width="500" height="200" /></li>
+					<li><img src="img/04.jpg" width="500" height="200" /></li>
+					<li><img src="img/05.jpg" width="500" height="200" /></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>

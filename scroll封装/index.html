@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				function scroll(){
+					if( window.pageXOffset != null){					//ie9 + 其他浏览器
+						return{
+							left:window.pageXOffset,
+							top :window.pageYOffset
+						}
+					}else if( document.compatMode == "CSS1Compat" ){	//检测DOCTYPE
+						return{
+							left:document.documentElement.scrollLeft,
+							top:document.documentElement.scrollTop
+						}
+					}
+					return{
+							left:document.body.scrollLeft,
+							top :document.body.scrollTop				//怪异模式
+					}
+				}
+				window.onscroll=function(){
+					console.log(scroll().top)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div style="height: 3000px;"></div>
+	</body>
+</html>

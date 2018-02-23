@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       .top{
+           position: fixed;
+           right:50px;
+           bottom:100px;
+           display: none;
+       }
+
+    </style>
+    <script>
+        window.onload = function() {
+        	//function scroll封装
+				function scroll(){
+					if( window.pageXOffset != null){					//ie9 + 其他浏览器
+						return{
+							left:window.pageXOffset,
+							top :window.pageYOffset
+						}
+					}else if( document.compatMode == "CSS1Compat" ){	//检测DOCTYPE
+						return{
+							left:document.documentElement.scrollLeft,
+							top:document.documentElement.scrollTop
+						}
+					}
+					return{
+							left:document.body.scrollLeft,
+							top :document.body.scrollTop				//怪异模式
+					}
+				}
+			//封装结束
+			//ID
+			function $ (id){ return document.getElementById(id)};
+			//ID结束
+			//隐藏显示
+			function show(obj) { obj.style.display = "block";}
+			function hide(obj) { obj.style.display = "none";}
+			//隐藏显示结束
+            var goTop = $("gotop");
+            window.onscroll = function() {
+                scroll().top > 0 ? show(goTop) : hide(goTop);  				//如果大于0 就显示 否则隐藏
+                leader = scroll().top;  									//把卷去的头部给起始位置
+                console.log(scroll().top);
+            }
+            var leader = 0,target = 0,timer = null;
+            // leader 起始位置  target  目标位置
+            goTop.onclick = function() {
+            	clearInterval(timer);
+                timer = setInterval(function() {
+                    leader = leader + (target - leader ) / 10;
+                    window.scrollTo(0,leader);  							//去往页面中的某个位置
+                    if(leader == target)
+                    {
+                        clearInterval(timer);
+                    }
+                },20);
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="gotop" class="top">
+    <img src="img/Top.jpg" alt=""/>
+</div>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+<p>我是内容部分，有很多恩多很多</p>
+</body>
+</html>

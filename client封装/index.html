@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				function client(){
+					if( window.innerWidth != null ){
+						return{
+							width :window.innerWidth,
+							height:window.innerHeight
+						}
+					}else if( document.compatMode == "CSS1Compat"){
+						return{
+							width :document.documentElement.clientWidth,
+							height:document.documentElement.clientHeight
+						}
+					}
+					return{
+							widht :document.body.clientWidth,
+							height:document.body.clientHeight,
+					}
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

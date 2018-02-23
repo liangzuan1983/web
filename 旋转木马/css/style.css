@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding:0;
+    background: red;
+}
+li{
+    list-style: none;
+}
+img{
+    vertical-align: top;
+}
+.wrap{
+    width: 980px;
+    margin: 100px auto;
+}
+.slide{
+    height: 500px;
+    position: relative;
+}
+.slide li{
+    position: absolute;
+    left: 138px;
+    top: 0
+}
+.slide li img{
+    width:100%;
+}
+.arrow{
+      opacity: 0;
+      z-index: 100;
+      position: relative;
+}
+.prev,
+.next{
+    width:6 0px;
+    height:20px;
+    padding: 5px;
+    position: absolute;
+    z-index: 99;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 20px;
+    text-decoration: none;
+    color:#ccc;
+    top: 150px;
+}
+.next{
+    right:0;
+}
+
+
+

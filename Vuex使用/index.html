@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+//import Vuex from 'vuex'
+//import Vue from 'vue'
+//import store from './store'
+//Vue.use(Vuex);
+//new Vue 要导出 ({store,})
+
+//创建Store仓库
+export default new Vuex.Store({
+    //获取数据 return this.$store.state.count;  
+    state:{
+      count:0
+    },
+    //对数据的操作,如果有getters,获取数据的时候就用 return this.$store.getters.getState; 
+    getters:{
+      getState(state){
+        return state.count > 10 ? 0 : state.count;
+      }
+    },
+    //执行方法 this.$store.commit('increment')
+    mutations:{
+      increment(state){
+        state.count++
+      }
+    },
+    // this.$store.dispatch('increment')
+    // actions不是必需品  
+    // actions提交的是mutations，可以包含任意异步操作，有网络请求的时候用actions
+    actions:{
+      increment(context){
+        context.commit('increment');
+      }
+    }
+})
+</script>
+</body>
+</html>

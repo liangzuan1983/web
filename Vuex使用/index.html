@@ -13,7 +13,10 @@
 
 //创建Store仓库
 export default new Vuex.Store({
-    //获取数据 return this.$store.state.count;  
+    //状态 
+    //获取的方式
+    //1.利用计算属性return this.$store.state.count;  
+    //2.利用数组下和计算属性,先引入import {mapState} from 'vuex'; computed:(['值'])
     state:{
       count:0
     },
@@ -23,7 +26,7 @@ export default new Vuex.Store({
         return state.count > 10 ? 0 : state.count;
       }
     },
-    //执行方法 this.$store.commit('increment')
+    //执行方法 this.$store.commit('increment'); 可以传值
     mutations:{
       increment(state){
         state.count++

@@ -53,12 +53,13 @@ export default new Vuex.Store({
         },5000)
         alert('我比setTimeout先执行了');
       }
-    }
+    },
     
-    // module模块组,项目不复杂不要用
-    // 
-    moduleA:{
-
+    // modules模块组,项目不复杂不要用
+    // 使用方法
+    // $store.state.模块组名字.引入的名称
+    modules:{
+         a:{state,getters,mutations,actions}
     }
 })
 </script>
